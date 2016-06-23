@@ -1,0 +1,24 @@
+<h2>Nerd!</h2>
+<p>{{ nerdCtrl.tagline }}</p>
+
+<form ng-submit="nerdCtrl.addNerd()">
+  <input type="text" ng-model="nerdCtrl.nerdName" placeholder="Nerd Name">
+  <input type="submit" value="Add Nerd" ng-disabled="!nerdCtrl.nerdName">
+</form>
+
+<form ng-submit="nerdCtrl.updateNerd()">
+  <select type="text" ng-model="nerdCtrl.nerdToUpdate" ng-options="nerd.name for nerd in nerdCtrl.nerds">
+    <option value="">- Choose Nerd -</option>
+  </select>
+  <input type="text" ng-model="nerdCtrl.nerdUpdateName" placeholder="Nerd Name">
+  <input type="submit" value="Update Nerd" ng-disabled="!nerdCtrl.nerdToUpdate || !nerdCtrl.nerdUpdateName">
+</form>
+
+<form ng-submit="nerdCtrl.removeNerd()">
+  <select type="text" ng-model="nerdCtrl.nerdToRemove" ng-options="nerd.name for nerd in nerdCtrl.nerds">
+    <option value="">- Choose Nerd -</option>
+  </select>
+  <input type="submit" value="Remove Nerd" ng-disabled="!nerdCtrl.nerdToRemove">
+</form>
+
+<p ng-repeat="nerd in nerdCtrl.nerds">{{ nerd.name }}</p>
