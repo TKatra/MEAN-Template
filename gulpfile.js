@@ -15,7 +15,7 @@ var inject = require('gulp-inject');
 
 gulp.task('sass', function() {
   return gulp.src('./public/sass/main.scss')
-    .pipe(sass())
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./public/css'))
     // .pipe(browserSync.reload({
     //   stream: true
